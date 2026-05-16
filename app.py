@@ -7,6 +7,10 @@ app = Flask(__name__)
 API_KEY = os.getenv("API_KEY")
 BASE_URL = "https://api.weatherapi.com/v1/current.json"
 
+@app.route("/")
+def home():
+    return "Weather API is running! Use /weather?city=Delhi"
+    
 def get_weather(city):
     params = {"key": API_KEY, "q": city, "aqi": "no"}
     try:
